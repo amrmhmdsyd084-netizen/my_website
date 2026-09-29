@@ -247,18 +247,37 @@ VRF والتكييف المركزي والدكت وجميع
 
 <h2>تواصل معنا</h2>
 
-<form>
+<input type="text" id="name" placeholder="الاسم">
 
-<input type="text" placeholder="الاسم">
+<input type="tel" id="phone"placeholder="رقم الهاتف">
 
-<input type="text" placeholder="رقم الهاتف">
+<textarea id="massage" placeholder="اكتب رسالتك"></textarea>
 
-<textarea placeholder="اكتب رسالتك"></textarea>
+<button onclick="sendWhatsapp()">إرسال</button>
 
-<button>إرسال</button>
+</section>
+<section>
+    function sendWhathsapp() {
+    let ownerNumber= "201030424171";
+    let name = document.getElementById("name").value;
+      let phone = document.getElementById("phone").value;
+      let massage = document.getElementById("massage").value;
+    if(name===""||phone===""||massage===""){
+    alert("من فضلك املا جميع البيانات");
+    return;
+    }
+    let text =
+        "رسالة جديدة من الموقع%0A" +
+        "الاسم: " + encodeURIComponent(name) + "%0A" +
+        "رقم الهاتف: " + encodeURIComponent(phone) + "%0A" +
+        "الرسالة: " + encodeURIComponent(message);
 
-</form>
+    let whatsappURL =
+        "https://wa.me/" + ownerNumber + "?text=" + text;
 
+    window.open(whatsappURL, "_blank");
+}
+</script>
 </section>
 
 <!-- Footer -->
