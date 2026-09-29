@@ -242,43 +242,41 @@ VRF والتكييف المركزي والدكت وجميع
 </section>
 
 <!-- Contact -->
+<section class="contact">
+    <h2>تواصل معنا</h2>
 
-<section id="contact">
+    <input type="text" id="name" placeholder="اسمك">
+    <input type="tel" id="phone" placeholder="رقم الهاتف">
 
-<h2>تواصل معنا</h2>
+    <textarea id="message" placeholder="اكتب رسالتك"></textarea>
 
-<input type="text" id="name" placeholder="الاسم">
-
-<input type="tel" id="phone"placeholder="رقم الهاتف">
-
-<textarea id="massage" placeholder="اكتب رسالتك"></textarea>
-
-<button onclick="sendWhatsapp()">إرسال</button>
-
+    <button onclick="sendWhatsApp()">إرسال الرسالة</button>
 </section>
-<section>
-    function sendWhathsapp() {
-    let ownerNumber= "201030424171";
+
+<script>
+function sendWhatsApp() {
+    let ownerNumber = "201276025274";
+
     let name = document.getElementById("name").value;
-      let phone = document.getElementById("phone").value;
-      let massage = document.getElementById("massage").value;
-    if(name===""||phone===""||massage===""){
-    alert("من فضلك املا جميع البيانات");
-    return;
+    let phone = document.getElementById("phone").value;
+    let message = document.getElementById("message").value;
+
+    if (name == "" || phone == "" || message == "") {
+        alert("من فضلك املأ جميع البيانات");
+        return;
     }
-    let text =
-        "رسالة جديدة من الموقع%0A" +
-        "الاسم: " + encodeURIComponent(name) + "%0A" +
-        "رقم الهاتف: " + encodeURIComponent(phone) + "%0A" +
-        "الرسالة: " + encodeURIComponent(message);
 
-    let whatsappURL =
-        "https://wa.me/" + ownerNumber + "?text=" + text;
+    let text = "رسالة جديدة من الموقع\n" +
+               "الاسم: " + name + "\n" +
+               "رقم الهاتف: " + phone + "\n" +
+               "الرسالة: " + message;
 
-    window.open(whatsappURL, "_blank");
+    let url = "https://wa.me/" + ownerNumber +
+              "?text=" + encodeURIComponent(text);
+
+    window.open(url, "_blank");
 }
 </script>
-</section>
 
 <!-- Footer -->
 
